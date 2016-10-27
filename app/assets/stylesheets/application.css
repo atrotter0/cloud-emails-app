@@ -57,7 +57,7 @@ input[type=text] {
 }
 
 input[type=text]:focus {
-  box-shadow: 1px 1px 20px rgb(91, 148, 239, 0.5);
+  box-shadow: 1px 1px 20px rgb(91, 148, 239);
 }
 
 input[type=submit] {
@@ -88,6 +88,6 @@ input[type=submit]:hover {
 }
 
 a {
-	color: rgb(91, 148, 239, 0.5);
+	color: rgb(91, 148, 239);
 	font-size: 0.8em;
 }
