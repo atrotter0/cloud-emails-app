@@ -66,21 +66,21 @@ class HomeController < ApplicationController
 		return res_flag
 	end
 
+	def trigger_redirect
+		redirect_to "/", notice: "Please enter a valid CLS urn."
+	end
+
 	# Get and return cls data if response is valid
 	def get_data(flag, url)
 		data = ""
-		response = 0
-		if flag == false
-			response = RestClient.get(url)
-			data = JSON.load response
-		end
+		response = RestClient.get(url)
+		data = JSON.load response
 		return data
 	end
 
 	# get client_urn
 	def get_client_urn(base_url)
 		client_urn = ""
-		response = get_response base_url
 		data = get_data response, base_url
 		client_urn = data["configurable_attributes"][0]["client_urn"]
 		return client_urn
@@ -155,10 +155,21 @@ class HomeController < ApplicationController
 
   def emails_export
   	cls_urn = params[:cls_urn]
-		cls_url = "https://#{cls_urn}.herokuapp.com/api/v1/configurable_attributes"
-		puts "Gathering data for #{cls_urn}..."
-		client_urn = get_client_urn cls_url
-		build_object client_urn, cls_url
+  	# validate for no user entry
+  	if cls_urn.empty?
+  		trigger_redirect
+  	else
+			cls_url = "https://#{cls_urn}.herokuapp.com/api/v1/configurable_attributes"
+			puts "Gathering data for #{cls_urn}..."
+			response = get_response cls_url
+			# check for invalid response
+			if response
+				trigger_redirect
+			else
+				client_urn = get_client_urn cls_url
+				build_object client_urn, cls_url
+			end
+		end
   end
 
 end
