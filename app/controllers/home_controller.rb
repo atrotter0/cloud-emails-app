@@ -1,8 +1,7 @@
 class HomeController < ApplicationController
 
 	require 'csv'
-
-	# emails_export controller classes
+	
 	class Emails
 
 		def initialize(name, internal_name, urn, emails, status)
@@ -150,12 +149,10 @@ class HomeController < ApplicationController
 		end
 	end
 
-	# index controller
   def index
 
   end
 
-  # emails export controller
   def emails_export
   	cls_urn = params[:cls_urn]
 		cls_url = "https://#{cls_urn}.herokuapp.com/api/v1/configurable_attributes"
