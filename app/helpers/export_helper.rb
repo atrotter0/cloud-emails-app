@@ -1,21 +1,18 @@
 module ExportHelper
-	
   require 'csv'
 
-  # create local csv
-  # export data to csv
+  def start_export(file_name, arr)
+    send_data(export_emails(file_name, arr), :type => 'text/csv; charset=utf-8; header=present', :filename => file_name)
+  end
+
   def export_emails(file_name, arr)
     csv_headers = ["Location Name:", "Internal Branded Name:", "CLS emails:", "Hub Emails:"]
-    CSV.open(file_name, "wb") do |csv|
+    CSV.generate do |csv|
       csv << csv_headers
-    end
-    i = 0
-    while i < arr.length
-      CSV.open(file_name, "a+") do |csv|
+      arr.each do |item|
         formatted = []
-        formatted.push(arr[i].get_name, arr[i].get_internal_name, arr[i].get_cls_emails, arr[i].get_hub_emails)
+        formatted.push(item.loc_name, item.loc_internal_name, item.loc_cls_emails, item.loc_hub_emails)
         csv << formatted
-        i = i+1
       end
     end
   end
