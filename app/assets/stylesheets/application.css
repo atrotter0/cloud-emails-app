@@ -14,9 +14,6 @@
 *= require_self
 */
 
-body {
-  background-color: #595f63;
-}
 
 #container {
   border: 0px solid red;
@@ -60,17 +57,16 @@ body {
   width: 100%;
 }
 
-p {
-  font-size: 1.5em;
-}
-
 #note {
   font-size: 0.5em;
 }
 
-#form-container {
-  width: 100%;
-  margin: 0 auto;
+body {
+  background-color: #595f63;
+}
+
+p {
+  font-size: 1.5em;
 }
 
 input[type=text] {
@@ -133,4 +129,9 @@ input[type="submit"]:focus {
   height: 20px;
   width: 20%;
   color: red;
+}
+
+.form-container {
+  width: 100%;
+  margin: 0 auto;
 }
