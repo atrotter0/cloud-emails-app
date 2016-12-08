@@ -1,5 +1,4 @@
 module ExportHelper
-	
   require 'csv'
 
   def start_export(file_name, arr)
@@ -12,7 +11,7 @@ module ExportHelper
       csv << csv_headers
       arr.each do |item|
         formatted = []
-        formatted.push(item.get_name, item.get_internal_name, item.get_cls_emails, item.get_hub_emails)
+        formatted.push(item.loc_name, item.loc_internal_name, item.loc_cls_emails, item.loc_hub_emails)
         csv << formatted
       end
     end
