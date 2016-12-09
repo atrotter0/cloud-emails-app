@@ -15,6 +15,6 @@ module ResponseHelper
   end
 
   def trigger_redirect
-  redirect_to "/", notice: "Please enter a valid CLS urn."
+    redirect_to "/", notice: "Please enter a valid CLS urn."
   end
 end
