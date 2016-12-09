@@ -5,6 +5,10 @@ class HomeController < ApplicationController
   include ExportHelper
 
   def index
+    respond_to do |format|
+      format.html
+      format.csv  
+    end
   end
 
   def emails_export
