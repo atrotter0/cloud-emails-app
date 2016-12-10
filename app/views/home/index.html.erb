@@ -1,4 +1,4 @@
-<div id="container">
+<div class="container">
   <div class="header-title"><h1>CLS Export Tool</h1></div>
   <div class="header-links" id="emails-link"><h3>Emails</h3></div>
     <div class="content" id="emails-content">
@@ -9,7 +9,7 @@
         <p>4. Buy Abe a beer.</p>
         <p class="note" id="emails-note"><strong>Note:</strong> Salesforce emails will not be exported. These values will still need to be manually exported from the CLS.</p>
         <div class="form-control">
-          <%= form_tag :controller => 'home', :action => 'run_emails_export' do %>
+          <%= form_tag :controller => 'home', :action => 'check_params' do %>
             <input type="text" name="email_cls_urn" id="input"><br/>
             <%= submit_tag "Export Emails", :id => 'export-emails', :onclick => 'swapBtnsEmail(), submit()' %>
             <input type="reset" name="reset" id="reset-emails">
@@ -25,7 +25,7 @@
         <p>3. Select a directory and save your export.</p>
         <p>4. Buy Abe another beer.</p>
         <div class="form-control">
-          <%= form_tag :controller => 'home', :action => 'run_overrides_export' do %>
+          <%= form_tag :controller => 'home', :action => 'check_params' do %>
             <input type="text" name="override_cls_urn" id="input"><br/>
             <%= submit_tag "Export Overrides", :id => 'export-overrides', :onclick => 'swapBtnsOverrides(), submit()' %>
             <input type="reset" name="reset" id="reset-overrides">

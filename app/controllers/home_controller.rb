@@ -3,34 +3,22 @@ class HomeController < ApplicationController
   include DataHelper
   include BuildObjectHelper
   include ExportHelper
+  include GetOverridesHelper
 
   def index
-
   end
 
-  def run_emails_export
-    cls_urn = params[:email_cls_urn]
-    email_list = []
-    # validate for empty input field on form submit
-    if cls_urn.empty?
-      trigger_redirect
+  def check_params
+    email_cls_urn = params[:email_cls_urn]
+    override_cls_urn = params[:override_cls_urn]
+    
+    # validate and run export depending on params passed
+    if email_cls_urn.blank? != true
+      run_emails_export email_cls_urn
+    elsif override_cls_urn.blank? != true
+      run_overrides_export override_cls_urn
     else
-      cls_url = "https://#{cls_urn}.herokuapp.com/api/v1/configurable_attributes"
-      puts "Gathering data for #{cls_urn}..."
-      response = get_response cls_url
-      # check for invalid response
-      if response
-        trigger_redirect
-      else
-        client_urn = get_client_urn cls_url
-        email_list = build_object client_urn, cls_url, email_list
-        start_export "#{client_urn}_cloud_emails.csv", email_list
-        puts "Emails exported!"
-      end
+      trigger_redirect
     end
-  end
-
-  def run_overrides_export
-
   end
 end

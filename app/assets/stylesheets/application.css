@@ -15,7 +15,7 @@
 */
 
 
-#container {
+.container {
   border: 0px solid red;
   width: 100%;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;

@@ -26,7 +26,7 @@ $(document).ready(function(){
     $("#overrides-content").slideToggle("slow");
   });
 
-  /* reload page to refresh UI */
+  /* reset btn triggers page reload to refresh UI */
   $("#reset-emails").click(function() {
     location.reload();
   });
@@ -37,13 +37,13 @@ $(document).ready(function(){
 
 });
 
-/* swap btns when exporting emails */
+/* swap submit and reset  btns when exporting emails */
 function swapBtnsEmail() {
   $("#export-emails").hide();
   $("#reset-emails").show();
 }
 
-/* swap btns when exporting overrides */
+/* swap submit and reset btns when exporting overrides */
 function swapBtnsOverrides() {
   $("#overrides-emails").hide();
   $("#reset-overrides").show();
