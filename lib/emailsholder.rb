@@ -1,7 +1,5 @@
 class EmailsHolder
 
-  include BuildObjectHelper
-
   attr_accessor :loc_name
   attr_accessor :loc_internal_name
   attr_accessor :loc_urn
