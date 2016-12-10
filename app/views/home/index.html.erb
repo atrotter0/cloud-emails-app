@@ -9,8 +9,9 @@
       <p id="note"><strong>Note:</strong> Salesforce emails will not be exported. These values will still need to be manually exported from the CLS.</p>
       <div class="form-control">
         <%= form_tag :controller => 'home', :action => 'run_export' do %>
-          <input type="text" name="cls_urn"><br/>
-          <%= submit_tag "Export Emails" %>
+          <input type="text" name="cls_urn" id="input"><br/>
+          <%= submit_tag "Export Emails", :id => 'export', :onclick => 'disableBtn(), submit(), disableInput()' %>
+          <input type="reset" name="reset" id="reset" onclick="reloadPage()">
         <% end %>
       </div>
     </div>
