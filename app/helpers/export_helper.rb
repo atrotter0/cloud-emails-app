@@ -1,6 +1,5 @@
 module ExportHelper
-  require 'csv'
-
+  
   def start_export(file_name, arr)
     send_data(export_emails(file_name, arr), :type => 'text/csv; charset=utf-8; header=present', :filename => file_name)
   end
