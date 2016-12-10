@@ -156,13 +156,24 @@ input[type=submit]:disabled:hover, [type=text]:disabled:hover {
 }
 
 .alert {
-  margin: 0 auto;
-  font-family: Arial;
-  font-weight: 200;
-  padding: 10px;
-  height: 20px;
-  width: 20%;
-  color: red;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 0.3;
+  height: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 0px 0px 90px 90px;
+  width: 28%;
+  min-width: 260px;
+  color: #ffffff;
+  text-align: center;
+  text-shadow: 1px 1px black;
+  background-color: #353638;
+  box-shadow: 4px 4px 5px #888888;
 }
 
 .form-container {

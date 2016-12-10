@@ -37,7 +37,6 @@ module BuildObjectHelper
     return emails_arr
   end
 
-
   # Build our overrides object with hub data
   # add to our object with cls data
   # return array of cls override obj
