@@ -8,8 +8,8 @@ class HomeController < ApplicationController
 
   end
 
-  def run_export
-    cls_urn = params[:cls_urn]
+  def run_emails_export
+    cls_urn = params[:email_cls_urn]
     email_list = []
     # validate for empty input field on form submit
     if cls_urn.empty?
@@ -28,5 +28,9 @@ class HomeController < ApplicationController
         puts "Emails exported!"
       end
     end
+  end
+
+  def run_overrides_export
+
   end
 end

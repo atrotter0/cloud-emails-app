@@ -1,18 +1,36 @@
 <div id="container">
-  <div id="header-content"><h1>CLS Email Export Tool</h1></div>
-  <div id="content">
-    <div id="steps-container">
-      <p>1. Enter the CLS urn in the field below.</p>
-      <p>2. Press 'Export Emails' button.</p>
-      <p>3. Select a directory and save your export.</p>
-      <p>4. Buy Abe a beer.</p>
-      <p id="note"><strong>Note:</strong> Salesforce emails will not be exported. These values will still need to be manually exported from the CLS.</p>
-      <div class="form-control">
-        <%= form_tag :controller => 'home', :action => 'run_export' do %>
-          <input type="text" name="cls_urn" id="input"><br/>
-          <%= submit_tag "Export Emails", :id => 'export', :onclick => 'disableBtn(), submit(), disableInput()' %>
-          <input type="reset" name="reset" id="reset" onclick="reloadPage()">
-        <% end %>
+  <div class="header-title"><h1>CLS Export Tool</h1></div>
+  <div class="header-links" id="emails-link"><h3>Emails</h3></div>
+    <div class="content" id="emails-content">
+      <div class="steps-container" id="emails-steps-container">
+        <p>1. Enter the CLS urn in the field below.</p>
+        <p>2. Press 'Export Emails' button.</p>
+        <p>3. Select a directory and save your export.</p>
+        <p>4. Buy Abe a beer.</p>
+        <p class="note" id="emails-note"><strong>Note:</strong> Salesforce emails will not be exported. These values will still need to be manually exported from the CLS.</p>
+        <div class="form-control">
+          <%= form_tag :controller => 'home', :action => 'run_emails_export' do %>
+            <input type="text" name="email_cls_urn" id="input"><br/>
+            <%= submit_tag "Export Emails", :id => 'export-emails', :onclick => 'swapBtnsEmail(), submit()' %>
+            <input type="reset" name="reset" id="reset-emails">
+          <% end %>
+        </div>
+      </div>
+  </div>
+  <div class="header-links" id="overrides-link"><h3>Overrides</h3></div>
+    <div class="content" id="overrides-content">
+      <div class="steps-container" id="overrides-steps-container">
+        <p>1. Enter the CLS urn in the field below.</p>
+        <p>2. Press 'Export Overrides' button.</p>
+        <p>3. Select a directory and save your export.</p>
+        <p>4. Buy Abe another beer.</p>
+        <div class="form-control">
+          <%= form_tag :controller => 'home', :action => 'run_overrides_export' do %>
+            <input type="text" name="override_cls_urn" id="input"><br/>
+            <%= submit_tag "Export Overrides", :id => 'export-overrides', :onclick => 'swapBtnsOverrides(), submit()' %>
+            <input type="reset" name="reset" id="reset-overrides">
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
