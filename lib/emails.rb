@@ -1,4 +1,4 @@
-class EmailsHolder
+class Emails
 
   attr_accessor :loc_name
   attr_accessor :loc_internal_name

@@ -17,7 +17,7 @@ module BuildObjectHelper
     # build objects with hub data
     hub_data["client"]["locations"].each do |loc|
       # grab locations that are not deleted or suspended
-      email_obj = EmailsHolder.new(loc["name"], loc["internal_branded_name"], loc["urn"], loc["email"], loc["status"])
+      email_obj = Emails.new(loc["name"], loc["internal_branded_name"], loc["urn"], loc["email"], loc["status"])
       # add cls data to existing objects
       cls_data["configurable_attributes"].each do |item|
         # add to existing object if location urns are the same
