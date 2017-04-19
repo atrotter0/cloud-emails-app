@@ -6,4 +6,4 @@ If you would like to contribute:
 1. Clone the repo.
 1. Create a feature branch.
 1. Write your code.
-1. Create a new PR
+1. Create a PR.
