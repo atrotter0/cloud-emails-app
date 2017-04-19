@@ -1,5 +1,4 @@
 module ResponseHelper
-  
   # Get response from the cls API
   # Set flag and return flag so we know if response is valid (F) or invalid (T)
   def get_response(url)

@@ -1,5 +1,4 @@
 module DataHelper
-  
   # Get and return cls data if response is valid
   def get_data(flag, url)
     data = ""

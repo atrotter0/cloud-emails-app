@@ -10,8 +10,7 @@ class HomeController < ApplicationController
 
   def check_params
     email_cls_urn = params[:email_cls_urn]
-    override_cls_urn = params[:override_cls_urn]
-    
+    override_cls_urn = params[:override_cls_urn] 
     # validate and run export depending on params passed
     if email_cls_urn.blank? != true
       run_emails_export email_cls_urn
