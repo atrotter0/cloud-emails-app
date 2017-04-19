@@ -1,5 +1,4 @@
 module BuildObjectHelper
-  
   # Build our emails objects with hub data
   # add to our objects with cls data
   def build_emails_object(client_urn, cls_url, arr)
@@ -21,9 +20,11 @@ module BuildObjectHelper
       # add cls data to existing objects
       cls_data["configurable_attributes"].each do |item|
         # add to existing object if location urns are the same
-        if item["category"] == "Location" && item["location_urn"] == email_obj.loc_urn && item["field"] == "to_email"
-          # get emails
-          if item["value"].include? "@"
+        if item["category"] == "Location" && item["location_urn"] == email_obj.loc_urn && item["field"] == "to_email" && item["value"].include?("@")
+          if item.has_key?("form")
+            form_and_email = item["form"] + ": " + item["value"] + ", "
+            email_obj.add_form_email(form_and_email)
+          else
             email_obj.add_cls_email(item["value"])
           end
         end
@@ -31,6 +32,7 @@ module BuildObjectHelper
 
       # only push objects that are not deleted, or suspended
       if email_obj.loc_status != "Deleted" && email_obj.loc_status != "Suspended"
+        email_obj.remove_last_comma
         emails_arr.push(email_obj)
       end
     end

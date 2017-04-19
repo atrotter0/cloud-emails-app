@@ -1,5 +1,4 @@
 module GetOverridesHelper
-
   # get overrides for specific emailer category
   # add values to object if they match all cls API values
   # return object

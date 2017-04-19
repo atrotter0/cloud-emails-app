@@ -1,5 +1,4 @@
 module ExportHelper
-
   def run_emails_export(urn)
     email_list = []
     cls_url = "https://#{urn}.herokuapp.com/api/v1/configurable_attributes"
@@ -49,12 +48,12 @@ module ExportHelper
   end
 
   def export_emails(file_name, arr)
-    csv_headers = ["Location Name:", "Internal Branded Name:", "CLS emails:", "Hub Emails:"]
+    csv_headers = ["Location Name:", "Internal Branded Name:", "CLS emails:", "CLS Form Emails:", "Hub Emails:"]
     CSV.generate do |csv|
       csv << csv_headers
       arr.each do |item|
         formatted = []
-        formatted.push(item.loc_name, item.loc_internal_name, item.loc_cls_emails, item.loc_hub_emails)
+        formatted.push(item.loc_name, item.loc_internal_name, item.loc_cls_emails, item.loc_form_emails, item.loc_hub_emails)
         csv << formatted
       end
     end
