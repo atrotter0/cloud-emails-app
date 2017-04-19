@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app is used as a tool for internal teams to quickly and easily export cls email lists and cls override configurations. 
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+If you would like to contribute:
+1. Clone the repo.
+1. Create a feature branch.
+1. Write your code.
+1. Create a new PR
